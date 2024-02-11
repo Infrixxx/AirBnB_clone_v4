@@ -1,82 +1,75 @@
-```markdown
-# AirBnB Clone - The Console
+```
 
-## Introduction
-The console is the first segment of the AirBnB project at Holberton School that collectively covers fundamental concepts of higher-level programming. The goal of the AirBnB project is to eventually deploy our server as a simple copy of the AirBnB Website (HBnB). A command interpreter is created in this segment to manage objects for the AirBnB (HBnB) website.
+░█████╗░██╗██████╗░██████╗░███╗░░██╗██████╗░  ░█████╗░██╗░░░░░░█████╗░███╗░░██╗███████╗
+██╔══██╗██║██╔══██╗██╔══██╗████╗░██║██╔══██╗  ██╔══██╗██║░░░░░██╔══██╗████╗░██║██╔════╝
+███████║██║██████╔╝██████╦╝██╔██╗██║██████╦╝  ██║░░╚═╝██║░░░░░██║░░██║██╔██╗██║█████╗░░
+██╔══██║██║██╔══██╗██╔══██╗██║╚████║██╔══██╗  ██║░░██╗██║░░░░░██║░░██║██║╚████║██╔══╝░░
+██║░░██║██║██║░░██║██████╦╝██║░╚███║██████╦╝  ╚█████╔╝███████╗╚█████╔╝██║░╚███║███████╗
+╚═╝░░╚═╝╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚══╝╚═════╝░  ░╚════╝░╚══════╝░╚════╝░╚═╝░░╚══╝╚══════╝
+```
 
-## Functionalities of the Command Interpreter:
-- Create a new object (e.g., a new User or a new Place)
-- Retrieve an object from a file, a database, etc.
-- Perform operations on objects (count, compute stats, etc.)
-- Update attributes of an object
-- Destroy an object
+![AirBnB](assets/hbnb_logo.png)
 
-## Table of Contents
-1. [Environment](#environment)
-2. [Installation](#installation)
-3. [File Descriptions](#file-descriptions)
-4. [Usage](#usage)
-5. [Examples of Use](#examples-of-use)
-6. [Bugs](#bugs)
-7. [Author](#author)
-8. [License](#license)
+## DESCRIPTION
 
-## Environment
-This project is interpreted/tested on Ubuntu 14.04 LTS using Python 3 (version 3.4.3).
+**AirBnB** is a *complete web application*, integrating database storage, a back-end API, and front-end interface.
 
-## Installation
-1. Clone this repository: `git clone https://github.com/Infrixxx/AirBnB_clone_v4`
-2. Access the AirBnB directory: `cd AirBnB_clone_v4`
-3. Run the console interactively: `./console` and enter commands
-4. Run the console non-interactively: `echo "<command>" | ./console.py`
+This is part 1 of our AirBnb Clone project. The purpose of this project is to make a command interpreter that manages our AirBnb objects.
 
-## File Descriptions
-- `console.py` - The console contains the entry point of the command interpreter.
-- `models/` directory contains classes used for this project.
-- `models/engine` directory contains the File Storage class that handles JSON serialization and deserialization.
+#### Data Diagram
 
-## Usage
-List of commands this console currently supports:
-- `EOF` - exits console
-- `quit` - exits console
-- `<emptyline>` - overwrites default empty line method and does nothing
-- `create` - Creates a new instance of `BaseModel`, saves it (to the JSON file) and prints the id
-- `destroy` - Deletes an instance based on the class name and id (save the change into the JSON file).
-- `show` - Prints the string representation of an instance based on the class name and id.
-- `all` - Prints all string representations of all instances based or not on the class name.
-- `update` - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
+![data_diagram](assets/data_diagram.jpg)
 
-## Examples of Use
+## CONCEPTS LEARNT
+
+-    How to create a Python package
+-    How to create a command interpreter in Python using the `cmd` module
+-    What is Unit testing and how to implement it in a large project
+-    How to serialize and deserialize a Class
+-    How to write and read a JSON file
+-    How to manage `datetime`
+-    What is an `UUID`
+-    What is `*args` and how to use it
+-    What is `**kwargs` and how to use it
+-    How to handle named arguments in a function
+
+## SYNOPSIS
+
+#### Starting the Commandline Interpreter
+The Commandline Interpreter can be started by executing the command `./console.py`. The `console` can `create`, `destroy`, and `update` objects. Type `help` within the console to get a list of command options and its function.
+
+**Example:**
 ```bash
-vagrantAirBnB_clone$ ./console.py
+firdaus@ubuntu:~$ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
-EOF  all  create  destroy  help  quit  show  update
+EOF  create  help  quit
 
-(hbnb) all MyModel
-** class doesn't exist **
-(hbnb) create BaseModel
-7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) all BaseModel
-[[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}]
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}
-(hbnb) destroy BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-** no instance found **
+Undocumented commands:
+======================
+all  destroy  show  update
+
+(hbnb) help quit
+Quit command to exit the program
 (hbnb) quit
+firdaus@ubuntu:~$
 ```
+### OBJECTS IMPLEMENTED
+This repository contains the following files:
 
-## Bugs
-No known bugs at this time.
+| Folder | File | Description |
+| :--- | :--- | :--- |
+| tests |  | Contains test files for AirBnb Clone |
+|  | console.py | Command line Interpreter for managing AirBnB objects |
+| models | base_model.py | Defines all common attributes/methods for other classes |
+| models | amenity.py | Creates class `amenity` |
+| models | city.py | Creates class `city` |
+| models | place.py | Creates class `place` |
+| models | review.py | Creates class `review` |
+| models | state.py | Creates class `state` |
+| models | user.py | Creates class `user` |
+| models/engine/ | file_storage.py | Serializes instances to a JSON file and deserializes JSON file to instances |
+| To be updated |
 
-## Author
-BC Rachoshi - [GitHub](https://github.com/Infrixxx) / [Twitter](https://twitter.com/infrixxx)
-
-## License
-Public Domain. No copyright protection.
-```
-
-Feel free to copy and use this README for your project.
