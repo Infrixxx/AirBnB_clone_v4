@@ -1,94 +1,91 @@
-section.filters {
-  background-color: white;
-  height: 70px;
-  width: 100%;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  display: flex;
-}
-section.filters button {
-  font-size: 18px;
-  background-color: #ff5a5f;
-  color: #ffffff;
-  height: 48px;
-  width: 20%;
-  border: 0;
-  border-radius: 4px;
-  margin: auto 30px;
-}
-section.filters button:hover {
-  opacity: 90%;
-}
-section.filters div.locations,
-section.filters div.amenities {
-  height: 100%;
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-section.filters div.locations {
-  border-right: 1px solid #dddddd;
+.filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
 }
 
-section.filters div.amenities {
-  margin-right: auto;
+section.filters > button{
+    font-size: 18px;
+    color: white;
+    background-color: #FF5A5F;
+    height: 48px;
+    border: 0px;
+    border-radius: 4px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: 30px;
+    opacity: 1;
 }
-div.locations h3,
-div.amenities h3 {
-  font-weight: 600;
-  margin-bottom: 0px;
-  margin-left: 50px;
+
+section.filters > button:hover {
+    opacity: 0.9;
 }
-div.locations h4,
-div.amenities h4 {
-  font-weight: 400;
-  font-size: 14px;
-  margin: 4px auto;
-  margin-left: 50px;
-  margin-bottom: 16px;
+
+.locations, .amenities {
+    height: 100%;
+    width: 25%;
+    padding-left: 50px;
 }
-ul.popover {
-  list-style: none;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  background-color: #fafafa;
-  margin-top: 0px;
-  padding-left: 0px;
-  padding-bottom: 20px;
-  padding-top: 20px;
+
+.locations {
+    border-right: 1px solid #DDDDDD;
 }
-div.locations ul,
-div.amenities ul {
-  display: none;
+.locations > h3, .amenities > h3 {
+    font-weight: 600;
+    margin: 12px 0 5px 0;
 }
-section.filters div.locations:hover > ul,
-section.filters div.amenities:hover > ul {
-  display: block;
-  z-index: 999;
+
+.locations > h4, .amenities > h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0 0 5px 0;
 }
-section.filters div.locations,
-section.filters div.amenities {
-  height: 100%;
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+
+.popover {
+    display: none;
+    position: relative;
+    left: -51px;
+    background-color: #FAFAFA;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    z-index: 1;
+    padding: 30px 50px 30px 0;
+    margin-top: 17px;
 }
-div.locations ul.popover {
-  padding-bottom: 45px;
+
+.popover, .popover ul {
+    list-style-type: none;
 }
-div.locations ul.popover li h2 {
-  font-size: 18px;
-  padding-left: 35px;
-  margin-bottom: 4px;
-  margin-top: 0px;
+.locations:hover > .popover {
+    display: block;
 }
-div.locations ul.popover li h2.California {
-  margin-top: 30px;
+
+.amenities:hover > .popover {
+    display: block;
 }
-div.locations ul.popover li p,
-div.amenities ul.popover li p {
-  padding-left: 50px;
-  margin: 6px;
+
+.popover h2 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.locations > .popover > li {
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+.locations > .popover > li > ul {
+    padding-left: 20px;
+}
+.locations > .popover > li > ul > li {
+    margin-bottom: 10px;
+}
+
+.amenities > .popover > li {
+    margin-left: 50px;
+    margin-bottom: 10px;
 }
