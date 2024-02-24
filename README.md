@@ -12,7 +12,7 @@ The console is the first segment of the AirBnB project at Holberton School that 
 
 ## Authors
 
-Boitumelo Rachoshi)- [Github](https://github.com/infrixxxx)
+Boitumelo Rachoshi- [Github](https://github.com/infrixxxx)
 
 ## License
 
